@@ -18,7 +18,8 @@
   const playerDownBanner = document.getElementById("playerDownBanner");
 
   /** Set only from showCasualPlayerDown (normal mission, HP reached 0 once). */
-  const LS_FOR_REAL_UNLOCK = "taken_unlock_for_real_after_casual_down";
+  /** Tab session only: closing the tab clears; new visit must earn unlock again. */
+  const SS_FOR_REAL_UNLOCK = "taken_unlock_for_real_after_casual_down";
 
   const HELP_MISSION =
     "Click to lock mouse · WASD move · Space jump · Q/E lean · O door · LMB fire · R reload · 1/2 primary/secondary · AWM: RMB scope, wheel 2x/4x";
@@ -172,8 +173,8 @@
 
   function syncSeriousModeMenu() {
     const unlocked =
-      typeof localStorage !== "undefined" &&
-      localStorage.getItem(LS_FOR_REAL_UNLOCK) === "1";
+      typeof sessionStorage !== "undefined" &&
+      sessionStorage.getItem(SS_FOR_REAL_UNLOCK) === "1";
     if (menuSerious) menuSerious.classList.toggle("is-hidden", !unlocked);
     if (seriousModeHint) seriousModeHint.classList.toggle("is-hidden", !unlocked);
   }
@@ -184,7 +185,7 @@
     state.ui.casualDownShown = true;
     state.player.casualDownTriggered = true;
     try {
-      localStorage.setItem(LS_FOR_REAL_UNLOCK, "1");
+      sessionStorage.setItem(SS_FOR_REAL_UNLOCK, "1");
     } catch (_e) {
       /* ignore */
     }
