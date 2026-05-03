@@ -4,6 +4,10 @@ First-person Three.js prototype: clear a villa, rescue the hostage, extract. Opt
 
 **Requirements:** a modern browser and network access (Three.js and other dependencies load from CDNs).
 
+## Play online
+
+**[https://bingningguo.github.io/Taken-CQBGame/](https://bingningguo.github.io/Taken-CQBGame/)** — playable build (GitHub Pages).
+
 ## Run locally
 
 Serve the folder over HTTP (recommended) or open `index.html` directly.
@@ -43,7 +47,7 @@ Workflow: `.github/workflows/pages.yml`.
 
 If step 2 is skipped, the job can fail with **Get Pages site failed** / **Not Found** — Pages is not enabled yet, and the default Actions token cannot create it for you.
 
-Live URL after a successful run: `https://<user>.github.io/<repo>/`
+Live URL for this repo: [https://bingningguo.github.io/Taken-CQBGame/](https://bingningguo.github.io/Taken-CQBGame/). Forks use `https://<user>.github.io/<repo>/`.
 
 **Private repos:** free GitHub Pages for private repositories may be disabled; use a **public** repo or check your account/org rules.
 
