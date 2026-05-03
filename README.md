@@ -33,7 +33,19 @@ Then open `http://localhost:8080`.
 
 ## GitHub Pages
 
-Repository includes `.github/workflows/pages.yml`. In GitHub: **Settings → Pages → Source: GitHub Actions**. After a successful deployment the site is at `https://<user>.github.io/<repo>/`.
+Workflow: `.github/workflows/pages.yml`.
+
+### One-time setup (do this first)
+
+1. On GitHub: **Settings → Pages**.
+2. Under **Build and deployment → Source**, select **GitHub Actions** (not “Deploy from a branch”).
+3. Push to `main`, or **Actions → Deploy to GitHub Pages → Run workflow**.
+
+If step 2 is skipped, the job can fail with **Get Pages site failed** / **Not Found** — Pages is not enabled yet, and the default Actions token cannot create it for you.
+
+Live URL after a successful run: `https://<user>.github.io/<repo>/`
+
+**Private repos:** free GitHub Pages for private repositories may be disabled; use a **public** repo or check your account/org rules.
 
 ## Layout
 
