@@ -1,92 +1,51 @@
-# Taken (browser FPS prototype)
+# Taken — CQB browser game
 
-Browser-based first-person shooter prototype. The current build is a Three.js CQB villa-clearing prototype.
+First-person Three.js prototype: clear a villa, rescue the hostage, extract. Optional shooting range for loadout practice.
+
+**Requirements:** a modern browser and network access (Three.js and other dependencies load from CDNs).
 
 ## Run locally
 
-Open `index.html` in a browser. Three.js is loaded from a CDN, so an internet connection is required.
-
-## Standalone Git repository
-
-This folder is meant to be the **root** of its own repo (not a subfolder inside another project).
+Serve the folder over HTTP (recommended) or open `index.html` directly.
 
 ```bash
-cd Game   # or rename/copy the folder to your project name
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/<you>/<repo-name>.git
-git push -u origin main
+python -m http.server 8080
 ```
 
-## GitHub Pages
-
-1. Push `main` to GitHub (workflow is `.github/workflows/pages.yml`).
-2. **Settings → Pages → Build and deployment → Source:** **GitHub Actions**.
-3. After the workflow succeeds, open  
-   `https://<your-username>.github.io/<repo-name>/`  
-   (repo `<user>.github.io` → `https://<user>.github.io/`).
-
-Relative `src/` paths work on project Pages without a `<base>` tag.
+Then open `http://localhost:8080`.
 
 ## Controls
 
-- `WASD`: move
-- Mouse or `Arrow Left` / `Arrow Right`: turn
-- `Shift`: sprint
-- `Space`: jump
-- `Q` / `E`: lean left / right
-- `O`: toggle nearest room door
-- Left click: shoot
-- Click the screen: lock mouse
+| Input | Action |
+|--------|--------|
+| Click canvas | Pointer lock / mouse look |
+| `W` `A` `S` `D` | Move |
+| `Shift` | Sprint |
+| `Space` | Jump |
+| `Q` / `E` | Lean |
+| `O` | Toggle nearest door |
+| `LMB` | Fire |
+| `R` | Reload |
+| `1` / `2` | Primary / secondary |
+| `RMB` | AWM scope (scroll wheel zoom) |
 
-## Goal
+`E` interacts with the hostage when prompted.
 
-Start outside a small villa, breach into the first floor, clear rooms, move through the basement and second floor, and use windows/overlooks for vertical sightlines.
+## GitHub Pages
 
-## Current Features
+Repository includes `.github/workflows/pages.yml`. In GitHub: **Settings → Pages → Source: GitHub Actions**. After a successful deployment the site is at `https://<user>.github.io/<repo>/`.
 
-- Three.js scene, camera, WebGL renderer, resize handling, ambient light, directional light, ground, and sky color
-- First-person pointer-lock mouse look with pitch clamp
-- WASD movement, Shift sprint, Space jump, gravity, player height, Q/E leaning, and radius collision
-- CQB villa map with an outdoor spawn, basement, first floor, second floor, stair routes, windows, and room-based enemy placement
-- Increased floor spacing with open stair wells and an open living-room/second-floor atrium
-- Height-aware floor handling for basement stairs, first floor, second floor, and second-floor platforms
-- Room doors with basic open/close state for the front door, living room, kitchen, basement, and bedrooms
-- Camera-direction raycast shooting, including vertical aiming
-- Room-based encounter zones with configured enemy squads that activate when the player enters nearby spaces
-- Indoor walls, floors, windows, balcony rails, room doors, clean structural layout, and point lights
-- HTML HUD with HP, ammo, weapon, score, status text, and crosshair
+## Layout
 
-## Configuration
-
-This stage intentionally keeps enemies simple and stationary. It does not include full enemy AI, Boss AI, inventory, pickups, lockdown logic, or multi-level progression yet.
-
-## Structure
-
-```text
-.
+```
 ├── index.html
 ├── style.css
-├── .nojekyll
-├── .github/
-│   └── workflows/
-│       └── pages.yml
 ├── src/
 │   ├── main.js
+│   ├── config/
 │   ├── core/
-│   │   └── input.js
 │   ├── systems/
-│   │   ├── collisionSystem.js
-│   │   └── playerSystem.js
 │   ├── three/
-│   │   └── scene.js
 │   └── render/
-│       └── levelBuilder.js
-├── assets/
-│   ├── textures/
-│   ├── sprites/
-│   └── sounds/
-└── README.md
+└── assets/maps/
 ```
