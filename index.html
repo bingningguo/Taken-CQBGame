@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taken</title>
+  <link rel="stylesheet" href="style.css?v=start-green-1" />
+</head>
+<body>
+  <div id="mainMenu" class="main-menu" aria-label="Main menu">
+    <button type="button" id="menuRange" class="main-menu-range-btn">Range</button>
+    <div class="main-menu-panel main-menu-panel--wide">
+      <h1 class="main-menu-title">Taken</h1>
+      <p class="main-menu-sub">Engage terrorists. Find the hostage. Extract.</p>
+      <div class="loadout-columns">
+        <section class="loadout-column" aria-labelledby="loadout-primary-label">
+          <h2 id="loadout-primary-label" class="loadout-heading">Primary</h2>
+          <div id="menuPrimaryGrid" class="weapon-grid" role="group" aria-label="Primary weapon selection"></div>
+          <div id="menuPrimaryDetail" class="weapon-detail" aria-live="polite"></div>
+        </section>
+        <section class="loadout-column" aria-labelledby="loadout-secondary-label">
+          <h2 id="loadout-secondary-label" class="loadout-heading">Secondary</h2>
+          <div id="menuSecondaryGrid" class="weapon-grid" role="group" aria-label="Secondary weapon selection"></div>
+          <div id="menuSecondaryDetail" class="weapon-detail" aria-live="polite"></div>
+        </section>
+      </div>
+      <div class="main-menu-actions">
+        <button type="button" id="menuStart" class="main-menu-start">Start game</button>
+        <button type="button" id="menuSerious" class="main-menu-serious is-hidden">For real this time</button>
+      </div>
+      <p id="seriousModeHint" class="serious-mode-hint is-hidden">Serious mode unlocked: one life — HP at zero fails the mission.</p>
+    </div>
+  </div>
+
+  <canvas id="game" aria-label="Taken game canvas"></canvas>
+
+  <button type="button" id="backToMenuBtn" class="back-to-menu-btn">Back to menu</button>
+
+  <div id="hud" class="hud">
+    <div>HP: <span id="health">100</span></div>
+    <div>Weapon: <span id="weapon">HK416</span></div>
+    <div>Hostage: <span id="hostageStatus">Find hostage</span></div>
+    <div>Mouse: <span id="mouseStatus">CLICK TO LOCK MOUSE</span></div>
+    <label class="sensitivity-control">
+      Sens
+      <input id="sensitivity" type="range" min="1" max="10" value="5" />
+    </label>
+  </div>
+
+  <div id="rangeWeaponHud" class="range-weapon-hud is-hidden" aria-label="Range: number keys to swap weapons">
+    <div class="range-weapon-hud-title">Number keys: swap weapon</div>
+    <ul id="rangeWeaponList" class="range-weapon-hud-list"></ul>
+  </div>
+
+  <div id="scopeHint" class="scope-hint is-hidden" aria-live="polite"></div>
+
+  <div id="ammoPanel" class="ammo-panel">35/200</div>
+  <div id="interactionPrompt" class="interaction-prompt is-hidden"></div>
+  <div id="extractionCountdown" class="extraction-countdown is-hidden"></div>
+  <div id="crosshair" class="crosshair">+</div>
+  <div id="message" class="message is-hidden"></div>
+  <div id="help" class="help">Click to lock mouse · WASD move · Space jump · Q/E lean · O door · LMB fire · R reload · 1/2 weapons · AWM: hold RMB scope, wheel 2x/4x</div>
+
+  <div id="playerDownBanner" class="player-down-banner is-hidden" role="status" aria-live="polite">
+    <p class="player-down-banner__line">You're down, but nobody called cut.</p>
+    <p class="player-down-banner__sub">Serious mode is now unlocked on the main menu.</p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+  <script src="src/config/gameConfig.js?v=for-real-unlock-1"></script>
+  <script src="src/config/weaponConfig.js?v=for-real-unlock-1"></script>
+  <script src="src/config/enemyConfig.js?v=for-real-unlock-1"></script>
+  <script src="src/config/missionConfig.js?v=for-real-unlock-1"></script>
+  <script src="src/core/state.js?v=for-real-unlock-1"></script>
+  <script src="src/config/weaponSoundConfig.js?v=for-real-unlock-1"></script>
+  <script src="src/core/audio.js?v=for-real-unlock-1"></script>
+  <script src="src/core/input.js?v=for-real-unlock-1"></script>
+  <script src="src/three/scene.js?v=for-real-unlock-1"></script>
+  <script src="src/render/levelBuilder.js?v=for-real-unlock-1"></script>
+  <script src="src/render/glbMapLoader.js?v=for-real-unlock-1"></script>
+  <script src="src/render/rangeBuilder.js?v=for-real-unlock-1"></script>
+  <script src="src/render/weaponView.js?v=for-real-unlock-1"></script>
+  <script src="src/render/enemyView.js?v=for-real-unlock-1"></script>
+  <script src="src/render/effectsView.js?v=for-real-unlock-1"></script>
+  <script src="src/systems/collisionSystem.js?v=for-real-unlock-1"></script>
+  <script src="src/systems/meshCollisionSystem.js?v=for-real-unlock-1"></script>
+  <script src="src/systems/playerSystem.js?v=for-real-unlock-1"></script>
+  <script src="src/systems/weaponSystem.js?v=for-real-unlock-1"></script>
+  <script src="src/systems/enemySystem.js?v=for-real-unlock-1"></script>
+  <script src="src/systems/hostageSystem.js?v=for-real-unlock-1"></script>
+  <script src="src/systems/missionSystem.js?v=for-real-unlock-1"></script>
+  <script src="src/systems/uiSystem.js?v=for-real-unlock-1"></script>
+  <script src="src/systems/colliderEditorSystem.js?v=for-real-unlock-1"></script>
+  <script src="src/main.js?v=for-real-unlock-1"></script>
+</body>
+</html>
