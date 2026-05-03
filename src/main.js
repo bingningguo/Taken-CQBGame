@@ -167,7 +167,7 @@
     doorToggleWasDown = false;
     hideRangeWeaponLegend();
     if (playerDownBanner) playerDownBanner.classList.add("is-hidden");
-    document.querySelectorAll(".overlay.player-death").forEach((el) => el.remove());
+    document.querySelectorAll(".overlay.victory, .overlay.defeat").forEach((el) => el.remove());
   }
 
   function syncSeriousModeMenu() {
